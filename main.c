@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 void bubbleSort(int arr[], int n, int swapCount[], int *totalSwaps) {
     *totalSwaps = 0; 
     for (int i = 0; i < n-1; i++) {
@@ -8,8 +8,7 @@ void bubbleSort(int arr[], int n, int swapCount[], int *totalSwaps) {
                 int temp = arr[j];
                 arr[j] = arr[j+1];
                 arr[j+1] = temp;
-                swapCount[arr[j]]++; 
-                swapCount[arr[j+1]]++;
+                swapCount[temp]++; // Use temp as index directly
                 (*totalSwaps)++;
             }
         }
@@ -28,8 +27,7 @@ void selectionSort(int arr[], int n, int swapCount[], int *totalSwaps) {
         int temp = arr[min_index];
         arr[min_index] = arr[i];
         arr[i] = temp;
-        swapCount[temp]++;
-        swapCount[arr[i]]++;
+        swapCount[temp]++; // Use temp as index directly
         (*totalSwaps)++; 
     }
 }
